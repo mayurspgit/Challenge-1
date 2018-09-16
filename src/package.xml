@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
 	<types>
-		<members>EventTrigger</members>
-		<name>ApexTrigger</name>
-	</types>
+		<members>Event</members>
+        <name>CustomObject</name>
+    </types>
 	<types>
-		<members>EventTriggerHandler</members>
-		<name>ApexClass</name>
-	</types>
+        <members>Contact-Contact Layout</members>
+        <name>Layout</name>
+    </types>
+	<types>
+        <members>CreatingMeetingController</members>
+        <members>EventTriggerHandler</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>CreateMeetingPage</members>
+        <name>ApexPage</name>
+    </types>
+    <types>
+        <members>EventTrigger</members>
+        <name>ApexTrigger</name>
+    </types>
 	<version>40.0</version>
 </Package>

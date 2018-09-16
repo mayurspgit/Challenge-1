@@ -1,0 +1,17 @@
+<apex:page showHeader="true" sidebar="true" docType="html-5.0" standardController="Contact" extensions="CreatingMeetingController">
+    <apex:slds />
+    <apex:form >
+        <apex:pageBlock >
+            <apex:pageMessages escape="false"/>
+            <apex:pageBlockSection title="Meeting Details">
+                <apex:inputField value="{!eventObj.Subject}"/>
+                <apex:inputField value="{!eventObj.WhoId}"/>
+                <apex:inputField value="{!eventObj.StartDateTime}"/>
+                <apex:inputField value="{!eventObj.EndDateTime}"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!saveEvent}" value="Save"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
