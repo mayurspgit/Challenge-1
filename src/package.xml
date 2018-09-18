@@ -11,6 +11,8 @@
 	<types>
         <members>CreatingMeetingController</members>
         <members>EventTriggerHandler</members>
+	<members>EventTriggerTest</members>
+	<members>CreatingMeetingControllerTest</members>
         <name>ApexClass</name>
     </types>
     <types>
