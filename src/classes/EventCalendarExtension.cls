@@ -2,7 +2,7 @@ public with sharing class EventCalendarExtension {
 	public EventCalendarExtension(ApexPages.StandardController stdCtrl){
 	}
 	@RemoteAction
-	public static String createEvent(Id contactId,String subject,String startDateTime,String endDateTime,Boolean isAllDayEvent){
+	public static String createEvent(Id contactId,String subject,String startDateTime,String endDateTime){
 		System.debug(contactId);
 		System.debug(subject);
 		System.debug(Datetime.valueOfGmt(startDateTime));
@@ -10,15 +10,9 @@ public with sharing class EventCalendarExtension {
 		try{
 			Event eventObj=new Event();
 			eventObj.Subject=subject;
-			eventObj.WhoId=contactId;
 			eventObj.StartDateTime=Datetime.valueOfGmt(startDateTime);
 			eventObj.EndDateTime=Datetime.valueOfGmt(endDateTime);
 			eventObj.OwnerId=UserInfo.getUserId();
-			if(isAllDayEvent){
-				eventObj.IsAllDayEvent=isAllDayEvent;
-				eventObj.StartDateTime=eventObj.StartDateTime.date();
-				eventObj.EndDateTime=eventObj.EndDateTime.date();
-			}
 			insert eventObj;
 			System.debug('event id: '+eventObj.Id);
 			EventRelation erObj=new EventRelation();
@@ -27,8 +21,6 @@ public with sharing class EventCalendarExtension {
 			erObj.RelationId=ContactId;
 			erObj.IsParent=true;
 			erObj.IsInvitee=true;
-			//insert erObj;
-
 			Database.DMLOptions dlo = new Database.DMLOptions();
 			dlo.EmailHeader.triggerOtherEmail  = true;
 			Database.insert(erObj,dlo);
